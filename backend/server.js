@@ -4,10 +4,11 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import { sql } from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { UserTable } from "./migrations/001-create-users.js";
+import { topicTable } from "./migrations/002-create-topic.js";
+import { flashCardTable } from "./migrations/003-create-flashcard.js";
 const app = express();
 dotenv.config();
 app.use(express.json());
@@ -22,6 +23,8 @@ async function initializeDb() {
   try {
     console.log("DB CONNECTED SUCCESSFULLY");
     await UserTable();
+    await topicTable();
+    await flashCardTable();
   } catch (error) {
     console.log("ERROR INITILIAZING DB", error);
   }

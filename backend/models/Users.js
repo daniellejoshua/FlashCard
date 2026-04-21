@@ -6,3 +6,5 @@ export async function createUser(username, password, email) {
   return await sql`INSERT INTO users (username,hashed_password, email)
   VALUES (${username}, ${hashed_password}, ${email}) RETURNING * `;
 }
+
+

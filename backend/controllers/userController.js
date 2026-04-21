@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { sql } from "../config/db.js";
 import dotenv from "dotenv";
-import e from "express";
 
 dotenv.config();
 export async function registerUser(req, res, next) {

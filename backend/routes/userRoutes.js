@@ -5,6 +5,8 @@ import {
   registerUser,
   tokenRefresher,
 } from "../controllers/userController.js";
+import { authToken } from "../middleware/authUser.js";
+import { addTopic } from "../controllers/topicController.js";
 
 const router = express.Router();
 
